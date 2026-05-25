@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thuo — Goals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --background: 212 60% 95%;
+        --foreground: 215 87% 18%;
+        --card: 0 0% 100%;
+        --card-foreground: 215 87% 18%;
+        --primary: 208 65% 38%;
+        --primary-foreground: 210 40% 98%;
+        --muted: 212 58% 90%;
+        --muted-foreground: 212 58% 45%;
+        --border: 212 58% 88%;
+        --ring: 208 65% 38%;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      .card {
+        border: 1px solid hsl(var(--border));
+        background: hsl(var(--card));
+        color: hsl(var(--card-foreground));
+        border-radius: 0.75rem;
+      }
+    </style>
+  </head>
+  <body class="font-[Inter] antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))]" data-page="goals">
+    <div class="min-h-screen grid grid-cols-1 md:grid-cols-[260px_1fr]">
+      <aside class="hidden md:block border-r border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+        <div class="p-4">
+          <div class="text-lg font-bold">Thuo</div>
+          <div id="userBadge" class="mt-1 text-xs text-[hsl(var(--muted-foreground))]"></div>
+        </div>
+        <nav class="px-3 pb-4 space-y-1 text-sm">
+          <a data-nav="dashboard" href="./dashboard.html" class="block rounded-md px-3 py-2">Dashboard</a>
+          <a data-nav="transactions" href="./dashboard-transactions.html" class="block rounded-md px-3 py-2">Transactions</a>
+          <a data-nav="budgets" href="./dashboard-budgets.html" class="block rounded-md px-3 py-2">Budgets</a>
+          <a data-nav="investments" href="./dashboard-investments.html" class="block rounded-md px-3 py-2">Investments</a>
+          <a data-nav="goals" href="./dashboard-goals.html" class="block rounded-md px-3 py-2">Goals</a>
+          <a data-nav="receipts" href="./dashboard-receipts.html" class="block rounded-md px-3 py-2">Receipts</a>
+          <a data-nav="lending" href="./dashboard-lending.html" class="block rounded-md px-3 py-2">Lending</a>
+          <a data-nav="settings" href="./dashboard-settings.html" class="block rounded-md px-3 py-2">Settings</a>
+        </nav>
+        <div class="p-4">
+          <button id="logoutBtn" class="w-full rounded-md border border-[hsl(var(--border))] px-3 py-2 text-sm hover:bg-[hsl(var(--muted))]" type="button">
+            Log out
+          </button>
+        </div>
+      </aside>
+
+      <main class="p-4 sm:p-6">
+    <header class="flex items-center justify-between gap-4">
+  <div>
+    <h1 class="text-2xl font-bold tracking-tight">Goals</h1>
+    <p class="text-sm text-[hsl(var(--muted-foreground))]">Track savings goals (static demo).</p>
+  </div>
+  <button id="addGoalBtn" class="rounded-md bg-[hsl(var(--primary))] px-4 py-2 text-sm font-semibold text-[hsl(var(--primary-foreground))] hover:opacity-95" type="button">
+    + Add Goal
+  </button>
+</header>
+<section class="mt-6 grid gap-6">
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+    <div class="card p-5" style="background-image:url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600'); background-size:cover; background-position:center; position:relative;">
+      <div style="position:absolute; inset:0; background:rgba(255,255,255,0.35); border-radius:0.75rem;"></div>
+      <div style="position:relative; z-index:1;">
+        <div class="text-sm font-semibold">Trip to Cape Town</div>
+        <p class="mt-1 text-xs text-[hsl(var(--muted-foreground))]">Deadline: 2024-12-15</p>
+        <div class="mt-4">
+          <div class="h-2 w-full rounded-full bg-[hsl(var(--muted))] overflow-hidden">
+            <div class="h-full w-[35%] bg-[hsl(var(--primary))]"></div>
+          </div>
+          <div class="mt-2 flex items-center justify-between text-xs text-[hsl(var(--muted-foreground))]">
+            <span>Saved: <span data-money="2500"></span></span>
+            <span>Target: <span data-money="7000"></span></span>
+          </div>
+        </div>
+        <div class="mt-4 text-sm text-[hsl(var(--muted-foreground))]">Try moving unused budget into this goal.</div>
+      </div>
+    </div>
+
+    <div class="card p-5" style="background-image:url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600'); background-size:cover; background-position:center; position:relative;">
+      <div style="position:absolute; inset:0; background:rgba(255,255,255,0.35); border-radius:0.75rem;"></div>
+      <div style="position:relative; z-index:1;">
+        <div class="text-sm font-semibold">Emergency Fund</div>
+        <p class="mt-1 text-xs text-[hsl(var(--muted-foreground))]">Deadline: 2025-01-01</p>
+        <div class="mt-4">
+          <div class="h-2 w-full rounded-full bg-[hsl(var(--muted))] overflow-hidden">
+            <div class="h-full w-[33%] bg-[hsl(var(--primary))]"></div>
+          </div>
+          <div class="mt-2 flex items-center justify-between text-xs text-[hsl(var(--muted-foreground))]">
+            <span>Saved: <span data-money="6000"></span></span>
+            <span>Target: <span data-money="18000"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-5" style="background-image:url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600'); background-size:cover; background-position:center; position:relative;">
+      <div style="position:absolute; inset:0; background:rgba(255,255,255,0.35); border-radius:0.75rem;"></div>
+      <div style="position:relative; z-index:1;">
+        <div class="text-sm font-semibold">Buy a Car</div>
+        <p class="mt-1 text-xs text-[hsl(var(--muted-foreground))]">Deadline: 2025-07-01</p>
+        <div class="mt-4">
+          <div class="h-2 w-full rounded-full bg-[hsl(var(--muted))] overflow-hidden">
+            <div class="h-full w-[30%] bg-[hsl(var(--primary))]"></div>
+          </div>
+          <div class="mt-2 flex items-center justify-between text-xs text-[hsl(var(--muted-foreground))]">
+            <span>Saved: <span data-money="15000"></span></span>
+            <span>Target: <span data-money="50000"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+      </main>
+    </div>
+    <script>
+  // Format all money values
+  document.querySelectorAll("[data-money]").forEach((el) => {
+    const n = Number(el.getAttribute("data-money") || "0");
+    el.textContent = new Intl.NumberFormat("en-BW", {
+      style: "currency", currency: "BWP", maximumFractionDigits: 2
+    }).format(n);
+  });
+
+  // User badge
+  document.getElementById("userBadge").textContent = "Thabo • The Student";
+
+  // Logout button
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+
+  // Highlight active nav
+  document.querySelectorAll("[data-nav]").forEach((a) => {
+    a.classList.add("hover:bg-[hsl(var(--muted))]");
+  });
+  const active = document.querySelector('[data-nav="goals"]');
+  if (active) {
+    active.classList.add("bg-[hsl(var(--primary))]", "text-[hsl(var(--primary-foreground))]");
+  }
+  document.getElementById("addGoalBtn").addEventListener("click", () => alert("Add Goal — coming in full app."));
+</script>
+  </body>
+</html>
